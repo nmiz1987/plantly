@@ -27,8 +27,7 @@ export default function NewScreen() {
     }
 
     addPlant(name, Number(days));
-    // The default behaviour of the underlying library has changed. If you are using Expo Router 4+ (which depends on React Navigation 7+), use router.back() here instead. More info: https://reactnavigation.org/docs/upgrading-from-6.x/#the-navigate-method-no-longer-goes-back-use-popto-instead
-    router.navigate('/');
+    router.back();
   };
 
   return (
