@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { theme } from '@/theme';
 import { useUserStore } from '@/store/userStore';
@@ -50,8 +50,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tagline: {
-    fontSize: 24,
+    fontSize: 34,
     color: theme.colorWhite,
     textAlign: 'center',
+    fontFamily: Platform.select({
+      ios: 'Caveat-Regular',
+      android: 'Caveat_400Regular',
+    }),
   },
 });
