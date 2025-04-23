@@ -1,11 +1,14 @@
 import { Stack } from 'expo-router';
 import * as NavigationBar from 'expo-navigation-bar';
 import { useLayoutEffect } from 'react';
+import { Platform } from 'react-native';
 
 export default function RootLayout() {
   useLayoutEffect(() => {
-    NavigationBar.setBackgroundColorAsync('white');
-    NavigationBar.setButtonStyleAsync('dark');
+    if (Platform.OS === 'android') {
+      NavigationBar.setBackgroundColorAsync('white');
+      NavigationBar.setButtonStyleAsync('dark');
+    }
   }, []);
 
   return (
