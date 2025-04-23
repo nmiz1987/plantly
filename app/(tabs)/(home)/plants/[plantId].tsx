@@ -19,6 +19,15 @@ export default function PlantDetails() {
   const navigation = useNavigation();
 
   useEffect(() => {
+    if (params.action === 'water') {
+      if (typeof plantId === 'string') {
+        waterPlant(plantId);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     navigation.setOptions({
       title: plant?.name,
     });
