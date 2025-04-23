@@ -7,6 +7,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { usePlantStore } from '@/store/plantsStore';
 import { useRouter } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
+import { StatusBar } from 'expo-status-bar';
 
 export default function NewScreen() {
   const router = useRouter();
@@ -21,7 +22,7 @@ export default function NewScreen() {
     }
 
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      mediaTypes: 'images',
       allowsEditing: true,
       aspect: [1, 1],
       quality: 1,
@@ -51,6 +52,7 @@ export default function NewScreen() {
 
   return (
     <KeyboardAwareScrollView style={styles.container} contentContainerStyle={styles.contentContainer} keyboardShouldPersistTaps="handled">
+      <StatusBar style="dark" />
       <TouchableOpacity style={styles.centered} onPress={handleChooseImage} activeOpacity={0.8}>
         <PlantlyImage imageUri={imageUri} />
       </TouchableOpacity>
