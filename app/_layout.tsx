@@ -1,7 +1,8 @@
-import { Stack } from 'expo-router';
+import { SplashScreen, Stack } from 'expo-router';
 import * as NavigationBar from 'expo-navigation-bar';
 import { useLayoutEffect } from 'react';
 import { Platform } from 'react-native';
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   useLayoutEffect(() => {

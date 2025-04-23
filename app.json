@@ -35,6 +35,12 @@
           },
           "imageWidth": 150
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": ["node_modules/@expo-google-fonts/caveat/Caveat_400Regular.ttf"]
+        }
       ]
     ],
     "extra": {
