@@ -23,7 +23,7 @@ export default function Layout() {
         name="plants/[plantId]"
         options={{
           title: '',
-          headerBackTitleVisible: false,
+          headerBackButtonDisplayMode: 'minimal',
           headerTintColor: theme.colorBlack,
         }}
       />
