@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { theme } from '@/theme';
 import { usePlantStore } from '@/store/plantsStore';
 import { PlantlyButton } from '@/components/PlantlyButton';
@@ -19,12 +19,14 @@ export default function App() {
         data={plants}
         renderItem={({ item }) => <PlantCard plant={item} />}
         ListEmptyComponent={
-          <PlantlyButton
-            title="Add your first plant"
-            onPress={() => {
-              router.navigate('/new');
-            }}
-          />
+          <View style={styles.emptyContainer}>
+            <PlantlyButton
+              title="Add your first plant"
+              onPress={() => {
+                router.navigate('/new');
+              }}
+            />
+          </View>
         }
       />
     </>
@@ -32,6 +34,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  emptyContainer: {
+    marginTop: 12,
+  },
   container: {
     flex: 1,
     backgroundColor: theme.colorWhite,
