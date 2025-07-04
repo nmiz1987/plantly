@@ -18,11 +18,15 @@ export default function PlantDetails() {
   const plant = usePlantStore(state => state.plants.find(plant => String(plant.id) === plantId));
   const navigation = useNavigation();
 
+  const handleWaterPlant = () => {
+    if (typeof plantId === 'string') {
+      waterPlant(plantId);
+    }
+  };
+
   useEffect(() => {
     if (params.action === 'water') {
-      if (typeof plantId === 'string') {
-        waterPlant(plantId);
-      }
+      handleWaterPlant();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -32,12 +36,6 @@ export default function PlantDetails() {
       title: plant?.name,
     });
   }, [plant?.name, navigation]);
-
-  const handleWaterPlant = () => {
-    if (typeof plantId === 'string') {
-      waterPlant(plantId);
-    }
-  };
 
   const handleDeletePlant = () => {
     if (!plant?.id) {
